@@ -147,7 +147,7 @@ TEST DATA 2: [12, 5, -5, 0, 4]
 const data1 = [17, 21, 23];
 const data2 = [12, 5, -5, 0, 4];
 
-console.log(`... ${data1[0]}ºC ... ${data1[1]}ºC ... ${data1[2]}ºC ...`);
+console.log(`... ${data1[0]}ºC ... ${da2]}ºC ...`);
 
 const printForecast = function (arr) {
   let str = '';
@@ -155,7 +155,6 @@ const printForecast = function (arr) {
     str += `${arr[i]}ºC in ${i + 1} days ... `;
   }
   console.log('...' + str);
-};
+};ta1[1]}ºC ... ${data1[
 printForecast(data1);
 */
-
