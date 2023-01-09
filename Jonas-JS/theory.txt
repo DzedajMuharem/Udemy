@@ -32,3 +32,16 @@ to the variables of an inner scope
 
 The scope chain has nothing to do with the order in which functions are called. 
 It does not affect the scope chain at all
+
+// This keyword: Special variable that is created for every execution context(every function). Takes the value of (points to) the 'owner' of the function in which this keyword is used
+
+This is NOT static. It depends on how the function is called and its value is only assigned when the function is actually called
+
+When function is called as:
+Method - this = Object that is calling the method
+
+Simple function call - this = undefined (In strict mode otherwise: window(in the browser))
+
+Arrow functions (dont get own this) - this = this of surrounding function(lexical this)
+
+Event listener - this = DOM element that the handler is attached to
