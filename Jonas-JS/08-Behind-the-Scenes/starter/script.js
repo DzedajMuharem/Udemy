@@ -125,6 +125,9 @@ console.log(f);
 f();
 
 */
+
+/*
+
 // var firstName = 'Matilda';
 const jonas = {
   firstName: 'Jonas',
@@ -133,10 +136,20 @@ const jonas = {
     console.log(this);
     console.log(2037 - this.year);
 
+    // Solution 1
+    // const self = this; // self or that
+    // const isMillenial = function () {
+    //   console.log(self);
+    //   console.log(self.year >= 1981 && self.year <= 1996);
+    //   //   console.log(this);
+    //   //   console.log(this.year >= 1981 && this.year <= 1996);
+    // };
+
+    // Solution 2
     const self = this; // self or that
-    const isMillenial = function () {
-      console.log(self);
-      console.log(self.year >= 1981 && self.year <= 1996);
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
       //   console.log(this);
       //   console.log(this.year >= 1981 && this.year <= 1996);
     };
@@ -150,3 +163,55 @@ const jonas = {
 };
 jonas.greet();
 jonas.calcAge();
+
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  a + b;
+};
+addArrow(2, 5, 8);
+
+*/
+
+// Primitives vs. Objects in Practice
+
+// Primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+// Reference types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica);
+console.log('After marriage: ', marriedJessica);
+// marriedJessica = {};
+
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before marriage:', jessica2);
+console.log('After marriage: ', jessicaCopy);
