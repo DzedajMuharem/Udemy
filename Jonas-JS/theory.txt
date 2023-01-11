@@ -45,3 +45,11 @@ Simple function call - this = undefined (In strict mode otherwise: window(in the
 Arrow functions (dont get own this) - this = this of surrounding function(lexical this)
 
 Event listener - this = DOM element that the handler is attached to
+
+Spread operator takes all element from the array and it also doesnt create new variables. And as a consequence, we can only use it in places where we would otherwise write values searated by commas.
+
+SPREAD, BEACUSE ON RIGHT SIDE OF =
+REST BEACUSE ON LEFT SIDE OF =
+ rest elemnt mora biti na kraju
+
+// Iterables are arrays, strings, maps, and sets, but not objects
