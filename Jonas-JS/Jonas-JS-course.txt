@@ -1,0 +1,89 @@
+Vrste funkcija: 
+
+// Function declaration
+function nazivFunkcije(parametar) {
+  return 2037 - parametar;
+}
+
+// Function expression
+const nazivFunkcije = function (parametar) {
+  return 2037 - parametar;
+};
+
+// Arrow function
+const nazivFunkcije = (parametar) => 2037 - parametar;
+
+// Pozivanje funcikije
+const pozivanjeFunkcije = nazivFunkcije(argument);
+
+------------------------------------------------------------------------------------------------------------------
+// How JS works behind the scenes //
+
+--Java script is:
+1. HIGH-LEVEL language, where we do not have to manage resources at all because these languages have so-called abstractions that take all of that work away from us. This makes the language easier to learn and to use, but the downside is that programs will never be as fast or as optimized as for example, C programs.
+
+2. Now, one of the powerful tools that takes memory management away from us developers is GARBAGE-COLLECTION, which is basically an algorithm inside the JavaScript engine, which automatically removes old, unused objects from the computer memory in order not to clog it up with unnecessary stuff.
+
+3. an interpreted or just-in-time compiled language.
+
+4. Now, one of the things that makes JavaScript so popular is the fact that it's a multi-paradigm language. In programming, a paradigm is an approach and an overall mindset of structuring our code, which will ultimately direct the coding style and technique in a project that uses a certain paradigm.
+Now, three popular paradigm:
+are procedural, object-oriented, and functional programming.
+
+5. So, about the object-oriented nature of JavaScript, it is a prototype-based, object-oriented approach. Well, first, almost everything in JavaScript is an object, except for primitive values such as numbers, strings, et cetera. But arrays, for example, are just object. Now, have you ever wondered why we can create an array and then use the push method on it, for example? Well, it's because of prototypal inheritance. Basically, we create arrays from an array blueprint, which is like a template and this is called the prototype. This prototype contains all the array methods and the arrays that we create in our code then inherit the methods from the blueprint so that we can use them on the arrays.
+
+6. JavaScript is a language with first-class functions, which simply means that functions are treated just as regular variables. So, we can pass functions into other functions and we can even return functions from functions.
+
+7 .JavaScript is a dynamic language and dynamic actually means dynamically-typed. So as we've already seen, in JavaScript, we don't assign data types to variables. Instead, they only became known when the JavaScript engine executes our code. Also, the type of variables can easily be changed as we reassign variables. 
+
+8. But anyway, let's now finally talk about the single-thread and the non-blocking event loop concurrency model.
+First, what actually is a concurrency model? Well, it's just a fancy term that means how the JavaScript engine handles multiple tasks happening at the same time. JavaScript itself runs in one single-thread, which means that it can only do one thing at a time and therefore we need a way of handling multiple things happening at the same time.
+So basically, the thread is where our code is actually executed in a machine's processor. But what if there is a long-running task, like fetching data from a remote server? Well, it sounds like that would block the single thread where the code is running, right? But of course we don't want that. What we want is so-called non-blocking behavior and how do we achieve that? Well, by using a so-called event loop. The event loop takes long-running tasks, executes them in the background and then puts them back in the main thread once they are finished.
+
+-- Execution Contexts and The Call Stack
+Well, an execution context is an abstract concept. But I define it basically as an environment in which a piece of JavaScript is executed. It's like a box that stores all the necessary information for some code to be executed. Such as local variables or arguments passed into a function. So, JavaScript code always runs inside an execution context.
+
+Call stack - Place where execution contexts get stacked on top of each
+other, to keep track of where we are in execution
+
+-- Scope and The Scope Chain
+Scoping asks the question Where do variables live? or Where can we access
+a certain variable, and where not
+
+there are 4 types of scope in JS: The Global scope, scoped defined by function
+and scopes defined by blocks(if, for loop)
+
+let i const are blocke-scoped
+var is function-scoped
+
+In JS we have lexical scoping, so the rules of where we can acces a variable 
+are based on exactly where in the code functions and blocks are written
+ **Scope chain - Child scope has the acces to the information of the parent scope, but parent scope can never have acces to the information of the child scope.
+
+When a variable is not in the current scope. the engine looks up in the scope 
+chain until it finds the variable its looking for. This is called
+variable lookup
+
+The scope chain has nothing to do with the order in which functions are called. 
+It does not affect the scope chain at all
+
+--This keyword 
+Special variable that is created for every execution context(every function). Takes the value of (points to) the 'owner' of the function in which this keyword is used
+ 
+This is NOT static. It depends on how the function is called and its value is only assigned when the function is actually called
+
+When function is called as:
+
+Method - this = Object that is calling the method
+Simple function call - this = undefined (In strict mode otherwise: window(in the browser))
+Arrow functions (dont get own this) - this = this of surrounding function(lexical this)
+Event listener - this = DOM element that the handler is attached to
+
+-- Destructuring arrays
+So destructuring is an ESX feature and it's basically a way of unpacking values from an array or an object into separate variables. So in other words destructuring is to break a complex data structure down into a smaller data structure like a variable.
+
+const arr = [2, 3, 4];
+const [x, y, z] = arr;
+**destructuring inside of destructuring
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
