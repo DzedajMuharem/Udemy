@@ -79,6 +79,9 @@ Simple function call - this = undefined (In strict mode otherwise: window(in the
 Arrow functions (dont get own this) - this = this of surrounding function(lexical this)
 Event listener - this = DOM element that the handler is attached to
 
+-----------------------------------------------------------------------------------------------------
+// Data Structures, Modern Operators and Strings
+
 -- Destructuring arrays
 So destructuring is an ESX feature and it's basically a way of unpacking values from an array or an object into separate variables. So in other words destructuring is to break a complex data structure down into a smaller data structure like a variable.
 
