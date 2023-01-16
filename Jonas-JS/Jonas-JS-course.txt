@@ -1,5 +1,11 @@
 Vrste funkcija: 
 
+Dot vs Bracket
+
+we use object.something when somethnig actually exists in object
+if for example we had 
+const objectBracket = prompt('Napis nesto)
+then we would use object[objectBracket] beacuse we dont have variable called objectBracket in object but we have the value of the prompt as the variable in object
 // Function declaration
 function nazivFunkcije(parametar) {
   return 2037 - parametar;
