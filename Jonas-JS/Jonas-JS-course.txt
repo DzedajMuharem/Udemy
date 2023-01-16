@@ -233,3 +233,30 @@ optional chaining and nullish Coalescing operator almost always go together
 Object.keys gives us the name of the property
 Object.values gives us the value of the property
 object.entries gives us the entire object (both the name and the value of property)
+
+-- Sets
+Set is basically just a cloection of unique values, so that means that sets cannot have any duplicates.
+In sets there are no indexes and there is no way of  getting that values since it doesnt exists
+
+-- Maps
+A map is a data structure that we can use to map values to keys.
+Like in objescts data is stored in key value in maps.
+Differnece is that in maps, the keys can have any type.(In objects keys are basically always strings)
+
+-- Which Data Structure to Use?
+where data can actually come from. So there are essentially three sources of data.
+
+- First, the data can be written within the program source code itself like status messages that will be displayed on a webpage based on user actions.
+- Second, data can come from the user interface. So from the webpage, it can either be data that the user inputs into some form or data test already written somehow in the DOM.
+
+- Finally, data can come from external sources which is usually a web API.
+
+So the first decision is this do we just need a simple list of values? If so, then we're gonna use an array or a set. But on the other hand if we need key value pairs, then we need an object or a map.
+
+Arrays vs Sets
+Now you should use arrays whenever you need to store values in order and when these values might contain duplicates. Also you should always use arrays when you need to manipulate data because there are a ton of useful array methods.
+
+Now sets on the other hand should only be used when you are working with unique values, besides that you can also use sets in situations when high performance is really important because operations like searching for an item or deleting an item from a set can be up to 10 times faster in sets than in arrays.
+
+Objects vs Maps
+You should use maps when you simply need to map keys to values and also when you need keys that are not strings because as we saw in the last video, that can be very powerful sometimes. Now, if you need functions as values then you should absolutely use an object for that. So in objects, these functions are then called methods and you can use the this keyword to access properties of the same object, which is impossible in maps. Also, when working with JSON data, you will probably be using objects for that as well
