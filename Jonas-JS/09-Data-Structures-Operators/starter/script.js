@@ -3,6 +3,29 @@
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [`day-${2 + 2}`]: {
+    open: 12,
+    close: 22,
+  },
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 
 // Data needed for first part of the section
 const restaurant = {
@@ -12,24 +35,14 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function (starterIndex, mainIndex) {
+  // ES6 enhanced object literals
+  openingHours,
+
+  // another way of writing methods
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
   orderDelivery: function ({
     starterIndex = 1,
     mainIndex = 0,
@@ -50,6 +63,77 @@ const restaurant = {
     console.log(mianIngridient, otherIngridients);
   },
 };
+// Object Keys, Values, Entries
+
+// Property names
+const properties = Object.keys(openingHours);
+console.log(properties);
+let openStr = `we are open on ${properties.length} days: `;
+
+for (const day of Object.keys(openingHours)) {
+  openStr += `${day},`;
+}
+console.log(openStr);
+
+// Property values
+
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+// [key,value] - posto je ovde value object mozemo da ga destructurujemo
+for (const [key, { open, close }] of entries) {
+  console.log(`on ${key} we open at ${open} and close at ${close}`);
+}
+/*
+// Optional chaining
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours.mon?.open);
+
+// WITH optional chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? `closed`;
+  console.log(`on ${day} we opet at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method doesnt exist');
+console.log(restaurant.orderRisoto?.(0, 1) ?? 'Method doesnt exist');
+
+// Arrays
+// const user = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+const user = [];
+
+console.log(user[0]?.name ?? 'User array empty');
+if (user.length > 0) console.log(user[0].name);
+else {
+  console.log(`user array empty`);
+}
+*/
+
+/*
+// The for-of Loop
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+// console.log([...menu.entries()]);
+*/
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -70,6 +154,7 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 
 GOOD LUCK 😀
 */
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -114,7 +199,11 @@ const team1 = game.odds.team1;
 const draw = game.odds.x;
 const team2 = game.odds.team2;
 
-console.log('Hello' && 23 && null && 'Jonas');
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+// console.log(team1, draw, team2);
+
 
 let team1W = team1 > team2 && 'Team 1 ima vise sansi za pobedu';
 let team2W = team1 < team2 && 'Team 2 ima vise sansi za pobedu';
@@ -132,6 +221,7 @@ function neka(...broj) {
   console.log(`${broj}, goals scored ${game.scored.length}`);
 }
 neka(game.scored);
+*/
 /*
 const rest1 = {
   name: 'Capri',
