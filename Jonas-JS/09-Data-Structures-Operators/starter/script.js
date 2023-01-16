@@ -62,6 +62,120 @@ const restaurant = {
     console.log(mianIngridient, otherIngridients);
   },
 };
+
+/*
+// Maps - iteration
+
+const question = new Map([
+  ['question', 'What is the best programing laungage in the world'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavScript'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'Try again'],
+  ['lol', 4],
+]);
+console.log(question);
+
+// Covert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+//  quiz app
+console.log(question.get('question'));
+for (const [key, values] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${values}`);
+}
+// const answer = +prompt('Your answer');
+const answer = 3;
+console.log(answer);
+console.log(question.get('correct'));
+console.log(question.get(question.get('correct') === answer));
+// if (answer === 3) {
+//   console.log(question.get(true));
+// } else {
+//   console.log(question.get(false));
+// }
+
+// Convery map to array
+console.log(...question);
+// console.log(question.entries());
+console.log(...question.keys());
+console.log(...question.values());
+*/
+
+// Maps
+
+/*
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firnze, Italy');
+rest.set(2, 'Lisbon, Portugal');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+rest
+  .set('Categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('closed', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('closed'))); // Power of booleans as the map keys
+
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+// rest.clear();
+const arr = [1, 2];
+// rest.set([1, 2], 'Test');
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'heading');
+
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr));
+*/
+
+/*
+// Sets
+const orders = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Rissoto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(orders);
+console.log(new Set('Hasan'));
+
+console.log(orders.size);
+console.log(orders.has('Pizza'));
+console.log(orders.has('Bread'));
+orders.add('Garlic bread');
+orders.add('Garlic bread');
+orders.delete('Rissoto');
+// orders.clear(); - deletes whole set
+console.log(orders);
+
+for (const order of orders) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+console.log(new Set('Hasan Mujanovic').size);
+*/
+
 ///////////////////////////////////////
 // Coding Challenge #2
 
@@ -85,6 +199,7 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 
 GOOD LUCK 😀
 */
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -181,6 +296,7 @@ for (const name of game.scored) {
   scorers[name] ? scorers[name]++ : (scorers[name] = 1);
 }
 console.log(scorers);
+*/
 
 /*
 
