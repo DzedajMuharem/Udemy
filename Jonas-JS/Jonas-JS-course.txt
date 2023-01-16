@@ -212,3 +212,18 @@ Here the value will be 'Team 2 ima vise sansi za pobedu' beacuse there are no fa
 let message = variableOr || variableAnd;
 Here the value will be the same value as the variableOr because it is the first truthy value it encounters
 
+-- Optional chaining (?.)
+If soemthing doesnt exist it retunrs undefined
+
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+  console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+optional chaining and nullish Coalescing operator almost always go together
+
+-- Object Keys, Values, Entries
+Object.keys gives us the name of the property
+Object.values gives us the value of the property
+object.entries gives us the entire object (both the name and the value of property)
