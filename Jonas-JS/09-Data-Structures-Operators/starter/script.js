@@ -62,6 +62,118 @@ const restaurant = {
     console.log(mianIngridient, otherIngridients);
   },
 };
+///////////////////////////////////////
+// Coding Challenge #4
+
+/* 
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+
+The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
+
+THIS TEST DATA (pasted to textarea)
+underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+
+SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
+
+HINT 1: Remember which character defines a new line in the textarea 😉
+HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
+HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+Afterwards, test with your own test data!
+
+GOOD LUCK 😀
+*/
+const btn = document.querySelector('.btn');
+const p1 = document.querySelector('.lasd');
+const textarea1 = document.querySelector('#povrsina');
+
+btn.addEventListener('click', function () {
+  const txtArea = textarea1.value.split('\n');
+  let noviStr;
+  let deoStringa;
+  let noviStr2;
+  let drugiDeo;
+  let final;
+  for (let [n, i] of txtArea.entries()) {
+    for (let b = 0; b < i.length; b++) {
+      if (i[b] === '_') {
+        deoStringa = i.slice(0, b);
+        drugiDeo = i.slice(b + 1);
+        noviStr = deoStringa + drugiDeo[0].toUpperCase() + drugiDeo.slice(1);
+      }
+    }
+    final = noviStr.padEnd(30, ' ') + '*'.repeat(n + 1);
+    p1.textContent += final;
+    console.log(final);
+  }
+
+  // const txtArea = textarea1.value.split('\n'); // ovde mora value posto kad sam deklarsao textArea1 nisam stavio .value, da sam stavio onda bi se pisalo samo textArea1.split
+  // for (let [i, w] of txtArea.entries()) {
+  //   const [deo1, deo2] = w.toLowerCase().trim().split('_');
+  //   const poruka = `${deo1}${deo2.replace(deo2[0], deo2[0].toUpperCase())}`;
+  //   console.log(`${poruka.padEnd(20)}${'*'.repeat(i + 1)}`);
+  // }
+});
+
+/*
+// split and join
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schemdtmann'.split(' '));
+
+const [firstName, LastName] = 'Jonas Schmedtmann'.split(' ');
+
+const newName = ['Mr', firstName, LastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const captalizeName = function (name) {
+  const names = name.split(' ');
+  const nameUpper = [];
+  for (const n of names) {
+    // nameUpper.push(n[0].toUpperCase() + n.slice(1));
+    nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(nameUpper.join(' '));
+};
+
+captalizeName('Hasan mujanovic');
+captalizeName('jessica ann smith davis');
+
+// padding
+const message = 'Go to gate 23';
+console.log(message.padStart(25, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(25, '+').padEnd(30, '+'));
+
+const maskCreditCard = function (number) {
+  const string = number + ''; // if one is a string it will convert everything to string
+  const last = string.slice(-4);
+  return last.padStart(string.length, '*');
+};
+console.log(maskCreditCard(43244842));
+console.log(maskCreditCard('2342342343254'));
+
+// Repeat
+const message2 = 'Bad weather... All departures delayed';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(
+    `There are ${n} planes in line${'ovde bi trebala slika aviona'.repeat(n)}`
+  );
+};
+planesInLine(2);
+*/
+
+/*
 const airline = 'TAP Air Portugal';
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
@@ -117,6 +229,7 @@ const checkBggage = function (items) {
 checkBggage('I have some laprtop, food, and pocket Knife');
 checkBggage('Socks and camera');
 checkBggage('Got some nsacks and a gun for protection');
+*/
 
 /*
 const airline = 'TAP Air Portugal';
