@@ -260,3 +260,23 @@ Now sets on the other hand should only be used when you are working with unique 
 
 Objects vs Maps
 You should use maps when you simply need to map keys to values and also when you need keys that are not strings because as we saw in the last video, that can be very powerful sometimes. Now, if you need functions as values then you should absolutely use an object for that. So in objects, these functions are then called methods and you can use the this keyword to access properties of the same object, which is impossible in maps. Also, when working with JSON data, you will probably be using objects for that as well
+
+
+------------------------------------------------------------------------------------------------------------------
+// A Closer Look at functions //
+
+-- How Passing Arguments Works: Value vs. Reference 
+
+Passing a primitive type to a function is really just the same as creating a copy, outside of the function. So the value is simply copied.
+On the other hand, when we pass an object to a function, it is really just like copying an object. And so whatever we change in a copy will also happen in the original.
+
+-- First-Class and Higher-Order Functions
+A higher order function is either a function that receives another function as an argument, or a function that returns a new function.
+
+The callback functions. We do not call them ourselves. But instead we call JavaScript to basically tell them later.
+
+Why our callback functions so much used in JavaScript and why are they so helpful?
+Well, the first big advantage of this is that it makes it easy to split up or code into more reusable and interconnected parts.
+
+But there is a second and way more important advantage, which is the fact that callback functions allow us to create abstraction.
+what abstraction means, is that we hide the detail of some code implementation because we don't really care about all that detail. And this allows us to think about problems at a higher more abstract level.
