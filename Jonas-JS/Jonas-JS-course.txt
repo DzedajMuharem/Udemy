@@ -280,3 +280,34 @@ Well, the first big advantage of this is that it makes it easy to split up or co
 
 But there is a second and way more important advantage, which is the fact that callback functions allow us to create abstraction.
 what abstraction means, is that we hide the detail of some code implementation because we don't really care about all that detail. And this allows us to think about problems at a higher more abstract level.
+
+-- The call and apply Methods
+We use them to specify from where this keyword should takee values
+
+  functionName(flightNum, name) {
+  this.someArrayInTheObject.push({
+      flight: `${this.airline} flight ${this.iataCode}${flightNum}`,
+      name,
+    });
+  },
+functionName.call(Name of the objects, arguments);
+
+Apply works the same but instead of writing arguments one at the time, it takes an array
+functionName.apply(Name of the object, array);
+
+We can use call even if we need to put in the array
+functionName.call(Name of the object, ...array)
+
+-- The Bind Method
+const variableName = function.bind(objectName);
+
+
+partial application means that a part of the arguments of the original function are already applied, so which means, already set.
+
+const variableName = function.bind(objectName,23);
+
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+Without bind method this keyword would refer to the element on which handler(addEventListener) is attached to
