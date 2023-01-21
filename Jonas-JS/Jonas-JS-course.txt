@@ -311,3 +311,22 @@ document
   .querySelector('.buy')
   .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
 Without bind method this keyword would refer to the element on which handler(addEventListener) is attached to
+
+-- Immediately Invoked Function Expressions (IIFE)
+
+It's important to hide variables. And scopes are a good tool for doing this. And this is also the reason why The Immediately Invoked Function Expressions were invented.
+
+-- Closures
+So a function always has access to the variable environment of the execution context in which it was created, even after a debt execution context is gone. And this last part is really important. The closure is then basically this variable environment attached to the function, exactly as it was at the time and place that the function was created.
+
+Closure has PRIORITY over the scope chain
+
+Closure is the closed over variable environment of the execution context in which a function was created even after that execution context is gone, or in other words, even after the function to which the execution context belongs has returned.
+
+Closure gives a function access to all the variables of its parent function. So the function in which it is defined even after that parent function has returned. So the function keeps a reference to its outer scope even after that outer scope is gone, which basically preserves the scope chain throughout time.
+
+Closure makes sure that a function does never lose connection to the variables that existed at the function's birthplace. It remembers the variables, even after the birthplace is gone. It's like a person who doesn't lose connection to their hometown. In this analogy, the person is the function and the hometown is the function's parents scope, and the function then doesn't lose the connection to the variables stored in this parent's scope.
+
+Finally, some people like to think of this attached variable environment as a backpack. So in this analogy, a function has a backpack, which it carries around wherever it goes. And this backpack contains all the variables that were present in the environment in which the function was created. Then whenever a variable can't be found in the function scope, JavaScript will look into the backpack and take the missing variable from there.
+
+Also, there is no way for us to explicitly access closed over variables. That's because closures are not like a tangible thing. They're not like an object or so that we can access. So we cannot just reach into a closure and take variables from it. That's impossible because a closure is just an internal property of a function.
