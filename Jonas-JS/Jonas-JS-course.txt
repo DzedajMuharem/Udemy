@@ -330,3 +330,16 @@ Closure makes sure that a function does never lose connection to the variables t
 Finally, some people like to think of this attached variable environment as a backpack. So in this analogy, a function has a backpack, which it carries around wherever it goes. And this backpack contains all the variables that were present in the environment in which the function was created. Then whenever a variable can't be found in the function scope, JavaScript will look into the backpack and take the missing variable from there.
 
 Also, there is no way for us to explicitly access closed over variables. That's because closures are not like a tangible thing. They're not like an object or so that we can access. So we cannot just reach into a closure and take variables from it. That's impossible because a closure is just an internal property of a function.
+
+-----------------------------------------------------------------------------------------------------
+// Working With Arrays //
+
+--Simple Array Methods
+
+SPLICE - mutates original array
+
+-- forEach()
+
+We can use forEach method instead of for loop. Differences are when we use entries in loop we have index,value, but in forEach method we have value,index,entire array/map
+
+forEach() can be used for arrays maps and sets
