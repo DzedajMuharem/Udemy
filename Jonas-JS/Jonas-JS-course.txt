@@ -343,3 +343,11 @@ SPLICE - mutates original array
 We can use forEach method instead of for loop. Differences are when we use entries in loop we have index,value, but in forEach method we have value,index,entire array/map
 
 forEach() can be used for arrays maps and sets
+
+--  Data Transformations: map, filter, reduce
+
+map returns a new array containing the results of applying an operation on all original array elements
+
+filter returns a new array containing the array elements that passed a specified test condition
+
+reduce boils ("reduces") all array elements down to one single value(e.g. adding all elements together)
