@@ -80,6 +80,25 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(word => word[0])
+      .join('');
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts);
+
+const calcAndDisplayBalance = function (movments) {
+  const balance = movments.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}EUR`;
+};
+calcAndDisplayBalance(account1.movements);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -90,7 +109,7 @@ displayMovements(account1.movements);
 //   ['GBP', 'Pound sterling'],
 // ]);
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -211,6 +230,7 @@ TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 
 GOOD LUCK 😀
 */
+/*
 const dataJulia = [3, 5, 2, 12, 7];
 const dataKate = [4, 1, 15, 8, 3];
 function checkDogs(arr1, arr2) {
@@ -230,3 +250,67 @@ function checkDogs(arr1, arr2) {
 }
 checkDogs(dataJulia, dataKate);
 checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+*/
+
+/*
+// map 
+
+const eurToUsd = 1.1;
+
+// const movmentsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+// console.log(movements);
+// console.log(movmentsUSD);
+
+const movementsUSDArrow = movements.map(x => x * eurToUsd);
+console.log(movementsUSDArrow);
+
+const movementsUSDFor = [];
+for (let mov of movements) {
+  movementsUSDFor.push(mov * eurToUsd);
+}
+console.log(movementsUSDFor);
+
+const movemensDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: you ${mov > 0 ? 'deposited' : 'withdrew'} ${mov}`
+);
+console.log(movemensDescriptions);
+*/
+
+/*
+// filter
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(deposits);
+
+const depositFor = [];
+for (const mov of movements) if (mov > 0) depositFor.push(mov);
+console.log(depositFor);
+
+const withdrawals = movements.filter(val => val < 0);
+console.log(withdrawals);
+*/
+
+// accumulator is like a snowball
+// const balance = movements.reduce(function (accumilator, cur, i, arr) {
+//   console.log(`iteration ${i}: ${accumilator}`);
+//   return accumilator + cur;
+// }, 0);
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+
+console.log(balance);
+
+let balance2 = 0;
+for (const mov of movements) balance2 += mov;
+console.log(balance2);
+
+// Maximum value
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
