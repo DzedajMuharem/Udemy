@@ -68,8 +68,8 @@ accounts.forEach((value, i, ent) => {
     .join('');
 });
 
-// movements
-const displayMovements = function (acc) {
+// Page look
+const displayPage = function (acc) {
   containerMovements.innerHTML = '';
   // textContent = 0
 
@@ -86,26 +86,33 @@ const displayMovements = function (acc) {
         `;
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
-};
 
-// messages
-const displayMessages = function (acc) {
   labelWelcome.textContent = `Welcome back, ${acc.owner.split(' ')[0]}`;
 
-  labelSumIn.textContent = acc.movements
-    .filter(x => x > 0)
-    .reduce((acc, sum) => acc + sum);
-  labelSumOut.textContent = acc.movements
-    .filter(x => x < 0)
-    .reduce((acc, sum) => acc + sum);
-
-  labelSumInterest.textContent = acc.movements
-    .filter(x => x > 0)
-    .map(x => (x * acc.interestRate) / 100)
-    .filter(x => x > 1)
-    .reduce((acc, sum) => acc + sum);
-
-  labelBalance.textContent = acc.movements.reduce((acc, sum) => acc + sum);
+  if (acc.movements.some(x => x < 0)) {
+    labelSumIn.textContent = acc.movements
+      .filter(x => x > 0)
+      .reduce((acc, sum) => acc + sum);
+    labelSumOut.textContent = acc.movements
+      .filter(x => x < 0)
+      .reduce((acc, sum) => acc + sum);
+    labelSumInterest.textContent = acc.movements
+      .filter(x => x > 0)
+      .map(x => (x * acc.interestRate) / 100)
+      .filter(x => x > 1)
+      .reduce((acc, sum) => acc + sum);
+    labelBalance.textContent = acc.movements.reduce((acc, sum) => acc + sum);
+  } else {
+    labelSumIn.textContent = acc.movements
+      .filter(x => x > 0)
+      .reduce((acc, sum) => acc + sum);
+    labelSumInterest.textContent = acc.movements
+      .filter(x => x > 0)
+      .map(x => (x * acc.interestRate) / 100)
+      .filter(x => x > 1)
+      .reduce((acc, sum) => acc + sum);
+    labelBalance.textContent = acc.movements.reduce((acc, sum) => acc + sum);
+  }
 };
 
 btnLogin.addEventListener('click', function (e) {
@@ -116,10 +123,10 @@ btnLogin.addEventListener('click', function (e) {
   if (currentAcc.pin === Number(inputLoginPin.value)) {
     document.querySelector('.app').style.opacity = 100;
   }
-  // movements
-  displayMovements(currentAcc);
-  // messages
-  displayMessages(currentAcc);
+  // page looks
+  displayPage(currentAcc);
+
+  inputLoginUsername.value = inputLoginPin.value = '';
 });
 
 btnTransfer.addEventListener('click', function (e) {
@@ -133,12 +140,48 @@ btnTransfer.addEventListener('click', function (e) {
   if (
     accounts.find(acc => acc.username === inputTransferTo.value) &&
     currentAcc.movements.reduce((acc, sum) => acc + sum) >
-      Number(inputTransferAmount.value)
+      Number(inputTransferAmount.value) &&
+    currentAcc.username !== inputTransferTo.value
   ) {
     currentAcc.movements.push(-amount);
-    displayMovements(currentAcc);
-    displayMessages(currentAcc);
+    displayPage(currentAcc);
 
     transferAcc.movements.push(amount);
   }
+
+  inputTransferTo.value = inputTransferAmount.value = '';
+});
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+  let amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAcc.movements.some(x => x >= amount / 10)) {
+    currentAcc.movements.push(amount);
+  }
+
+  displayPage(currentAcc);
+
+  inputLoanAmount.value = '';
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  let closePin = Number(inputClosePin.value);
+
+  let accIndex = accounts.findIndex(
+    x => x.username === inputCloseUsername.value
+  );
+  console.log(accIndex);
+
+  if (
+    currentAcc.username === inputCloseUsername.value &&
+    currentAcc.pin === closePin
+  ) {
+    accounts.splice(accIndex, 1);
+    document.querySelector('.app').style.opacity = 0;
+  }
+  console.log(accounts);
+
+  inputClosePin.value = inputCloseUsername.value = '';
 });
