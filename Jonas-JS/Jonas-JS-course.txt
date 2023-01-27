@@ -351,3 +351,61 @@ map returns a new array containing the results of applying an operation on all o
 filter returns a new array containing the array elements that passed a specified test condition
 
 reduce boils ("reduces") all array elements down to one single value(e.g. adding all elements together)
+
+-- Which Array Method to Use?
+
+// To mutate original array
+  Add to original:
+    .push (end)
+    .unshift (start)
+  Remove from original:
+    .pop (end)
+    .shift (start)
+    .splice (any)
+  Others:
+    .reverse
+    .sort
+    .fill
+
+// A new array
+  Computed from original:
+    .map (loop)
+  Filtered using condition:
+    .filter
+  Portion of original:
+    .slice
+  Adding original to other:
+    .concat
+  Flatening the original:
+    .flat
+    .flatMap
+
+// An array index
+  Based on value:
+    .indexOf
+  Based on test condition:
+    .findIndex
+  
+// An array element
+  Based on test condition:
+    .find
+
+// Know if array includes
+  Based on value:
+    .includes
+  Based on test condition:
+    .some
+    .every
+  
+// A new string
+  Based on separator string:
+    .join
+
+// To transform value
+  Based on accumulator:
+    .reduce (Boil down array to singe value of ANY type)
+  
+// To just loop array
+  Based on callback:
+    .forEach (Does not create a new array, just loops over it)
+  
