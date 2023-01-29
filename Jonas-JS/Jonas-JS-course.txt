@@ -409,3 +409,47 @@ reduce boils ("reduces") all array elements down to one single value(e.g. adding
   Based on callback:
     .forEach (Does not create a new array, just loops over it)
   
+-----------------------------------------------------------------------------------------------------
+// Advanced DOM and Events //
+
+-- How the DOM really works
+
+// Allows us to make JS interact with the browser
+// We can write JS to create, modify and delete HTML elements;
+set styles, classes and attributes; and listen and respond to events
+// DOM tree is generated from and HTML document, which we can then interact with
+// DOM is very complex API(Application Programming Interface) that contains lots of methods and properties to interact with the DOM tree
+
+-- Selecting, Creating, and Deleting Elements
+// Selecting elements:
+document.documentElement - Whole HTML
+document.head - HTML header
+document.body - HTML body
+.querySelector - Used to select class, id, or tag
+.querySelectorAll - Used to select all elements with the same class
+.getElementsByTagName('button') - Used to sellect all elements with the same tag
+.getElementsByClassName - Used to select all elements with same class name
+
+// Creating and inserting elements:
+insertAdjacentHTML(position, text):
+position:
+"beforebegin"
+Before the element. Only valid if the element is in the DOM tree and has a parent element.
+"afterbegin"
+Just inside the element, before its first child.
+"beforeend"
+Just inside the element, after its last child.
+"afterend"
+After the element. Only valid if the element is in the DOM tree and has a parent element.
+
+text:
+The string to be parsed as HTML or XML and inserted into the tree.
+
+.prepend - Ads element as first child on an element
+.append - Ads element as last child on an element
+.before -  inserts  before element
+.after - inserts after element
+
+// Delete:
+.remove()
+variable.parentElement.removeChild(variable);
