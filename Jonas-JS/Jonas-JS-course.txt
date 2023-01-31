@@ -453,3 +453,14 @@ The string to be parsed as HTML or XML and inserted into the tree.
 // Delete:
 .remove()
 variable.parentElement.removeChild(variable);
+
+-- Event Propagation: Bubbling and Capturing
+Capturing phase happens, where the event then travels all the way down from the document route to the target element. And as the event travels down the tree, it will pass through every single parent element of the target element.
+As soon as the event reaches the target,
+
+The target phase begins, where events can be handled right at the target. And as we already know, we do that with event listeners, such as this one. So event listeners wait for a certain event to happen on a certain element, and as soon as the event occurs, it runs the attached callback function.
+
+After reaching the target, the event then actually travels all the way up to the document route again, in the so-called bubbling phase. So we say that events bubble up from the target to the document route. And just like in the capturing phase, the event passes through all its parent elements, and really just the parents, so not through any sibling elements. So as an event travels down and up the tree, they pass through all the parent elements, but not through any sibling element.
+
+Adding the third paramater (true, false is default value) our variable is waiting for capture while others wait for bubble
+
