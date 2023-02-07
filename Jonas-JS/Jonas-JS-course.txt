@@ -464,3 +464,17 @@ After reaching the target, the event then actually travels all the way up to the
 
 Adding the third paramater (true, false is default value) our variable is waiting for capture while others wait for bubble
 
+// Efficient Script Loading: defer and async
+
+Async attribute
+
+Well, this is what the loading process looks like when we use async script loading in the head of the document. So as you can see, the difference is that the script is loaded at the same time as the HTML is parsed. So in an asynchronous way, so that's already an advantage. However, the HTML parsing still stops for the script execution. So the script is actually downloaded asynchronously. But then it's executed right away in a synchronous way. And so the HTML code has to wait for being parsed.
+Another very important aspect is that async scripts are not guaranteed to be executed in the exact order that they are declared in the code. So the script that arrives first gets executed first.
+
+Defer attribute
+when deferring what happens is that the script is still loaded asynchronously. But the execution of the script is deferred until the end of the HTML parsing. So in practice, loading time is similar to the async attribute, but with the key difference that would defer the HTML parsing is never interrupted, because the script is only executed at the end. And many times, this is exactly what we want.
+Using the defer attribute guarantees that the scripts are actually executed in the order that they are declared or written in the code.
+
+For example, if your script relies on some third party library that you need to include, you will include that library before your own script, so that your script can then use the library's code. And in this case, you have to use defer and not async. Because defer will guarantee the correct order of execution. Now, for third party scripts, where the order does not matter, for example, an analytics software like Google Analytics, or an ad script, or something like that, then in this case, you should totally use async. So for any code that your own code will not need to interact with async is just fine.
+
+Only modern browsers support defer and async
