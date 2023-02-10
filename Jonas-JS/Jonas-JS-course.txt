@@ -478,3 +478,38 @@ Using the defer attribute guarantees that the scripts are actually executed in t
 For example, if your script relies on some third party library that you need to include, you will include that library before your own script, so that your script can then use the library's code. And in this case, you have to use defer and not async. Because defer will guarantee the correct order of execution. Now, for third party scripts, where the order does not matter, for example, an analytics software like Google Analytics, or an ad script, or something like that, then in this case, you should totally use async. So for any code that your own code will not need to interact with async is just fine.
 
 Only modern browsers support defer and async
+
+-----------------------------------------------------------------------------------------------------
+// Object-Oriented Programming (OOP) With JavaScript //
+Object-oriented programming(OOP) is a programming paradigm based on the concept of objects.
+We cas use objects to model (describe) real-world or abstract features.
+Object may contain data (properties) and code(methods). By using objects, we pack data and corresponding behavior into one block.
+In OOP, objects are self-contained pieces/blocks of code
+Objects are building blocks of applications, and interact with one another.
+interactions happen through a public interface (API): methods that the code outside of the object can acces and use to communicate with the object
+OOP was developed with the goal of organizing code, to make it more flexible and easier to maintain(avoid "spaghetti code") 
+
+Abstraction
+Abstraction basically means to ignore or to hide details that don't matter. This allows us to get an overview perspective of whatever it is that we're implementing instead of messing with details that don't really matter to our implementation.
+
+Encapsulation
+Encapsulation basically means to keep some properties and methods private inside the class so that they're not accessible from outside the class. However, some methods can, of course, be exposed as a public interface, which we call API.
+
+Inheritance
+Inheritance makes all properties and methods of a certain class available to a child class, which of course then forms a hierarchy between these two classes. And the goal of this is to reuse logic that is common to both of the classes.
+
+Polymorphism
+in simple terms, polymorphism means that a child class can overwrite a method that it inherited from a parent class.
+
+// OOP in JavaScript
+Objects (instances) are instantiated from a class, which functions like a blueprint.
+
+Objects are linked to a prototype object. So prototypal inheritance means that all objects that are linked to a certain prototype object can use the methods and properties that are defined on that prototype.
+
+Behavior is delegated to the linked prototype object.
+
+Constructor functions are a way of creating objects programmatically, using a function which will also set the new object's prototype. And this is actually how built-in objects like arrays or maps or sets are implemented. Also, this is how OOP has been done in JavaScript basically since the beginning.
+
+So this means that ES6 classes are basically just a layer of obstruction over constructor functions. So, it's really just a nicer syntax that makes it easier for newcomers to do OOP in JavaScript. But behind the scenes, ES6 classes are actually implemented with constructor functions. And so they also use prototypal inheritance.
+
+There's also the object.create() which is basically the easiest and most straightforward way of linking an object to a prototype object.
