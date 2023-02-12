@@ -513,3 +513,8 @@ Constructor functions are a way of creating objects programmatically, using a fu
 So this means that ES6 classes are basically just a layer of obstruction over constructor functions. So, it's really just a nicer syntax that makes it easier for newcomers to do OOP in JavaScript. But behind the scenes, ES6 classes are actually implemented with constructor functions. And so they also use prototypal inheritance.
 
 There's also the object.create() which is basically the easiest and most straightforward way of linking an object to a prototype object.
+
+// ES6 Classes
+1. Classes are NOT hoisted
+2. Classes are firs-class citizens
+3. Classes are executed in strict mode

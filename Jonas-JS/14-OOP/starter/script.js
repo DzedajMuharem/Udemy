@@ -2,6 +2,7 @@
 
 //Constructor Functions and the new Operator
 
+/*
 const Person = function (firstName, birthYear) {
   // Instance properties
   this.firstName = firstName;
@@ -76,6 +77,7 @@ console.log(arr.unique());
 const h1 = document.querySelector('h1');
 console.dir(h1);
 console.dir(x => x + 1);
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #1
@@ -92,6 +94,7 @@ DATA CAR 2: 'Mercedes' going at 95 km/h
 GOOD LUCK 😀
 */
 
+/*
 const Car = function (make, speed) {
   this.speed = speed;
   this.make = make;
@@ -112,3 +115,79 @@ console.log(bmw.brake());
 console.log(bmw.brake());
 console.log(bmw.brake());
 console.log(bmw.accelerate());
+*/
+
+// ES6 Classes
+
+// class expression
+// const PersonCl = class{}
+
+// class declaration
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`hey ${this.firstName}`);
+  }
+
+  // Getter
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  // Set a property that alredy exists
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+}
+
+const jessica = new PersonCl('Jessica Davis', 1996);
+console.log(jessica);
+jessica.calcAge();
+
+console.log(jessica.age);
+
+console.log(jessica.__proto__ === PersonCl.prototype);
+
+// PersonCl.prototype.greet = function () {
+//   console.log(`hey ${this.firstName}`);
+// };
+jessica.greet();
+
+// 1. Classes are NOT hoisted
+// 2. Classes are firs-class citizens
+// 3. Classes are executed in strict mode
+
+const walter = new PersonCl('Walter White', 1965);
+
+// Setters and Getters
+const account = {
+  owner: 'Jonas',
+  movements: [299, 235, 19],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+
+console.log(account.latest);
+account.latest = 50;
+console.log(account.movements);
