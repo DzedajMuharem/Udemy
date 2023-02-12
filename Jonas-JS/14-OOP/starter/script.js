@@ -285,3 +285,42 @@ ford.accelerate();
 ford.brake();
 ford.speedUS = 50;
 console.log(ford);
+
+//  Inheritance Between "Classes": Constructor Functions
+
+const Person3 = function (firstName, birthYear) {
+  // Instance properties
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person3.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person3.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+// Linking protypes
+Student.prototype = Object.create(Person3.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and i study ${this.course}`);
+};
+
+const mike = new Student('Mike', 2020, 'Computer Science');
+mike.introduce();
+
+mike.calcAge();
+
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+console.log(mike instanceof Object);
+
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor);
