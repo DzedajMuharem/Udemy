@@ -530,3 +530,9 @@ However JavaScript classes actually do not yet support real data privacy and enc
 2) Private fields
 3) Public methods
 4) Public methods
+
+// ES6 Classes Summary
+Classes are just 'syntactic sugar' over constructor functions
+Classes are not hoisted
+Classes are first-class citizens
+Class body is always executed in strict mode
