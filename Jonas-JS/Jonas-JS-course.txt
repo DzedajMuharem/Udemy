@@ -518,3 +518,15 @@ There's also the object.create() which is basically the easiest and most straigh
 1. Classes are NOT hoisted
 2. Classes are firs-class citizens
 3. Classes are executed in strict mode
+
+// Encapsulation: Protected Properties and Methods
+
+There are two big reasons why we need encapsulation and data privacy. So first it is to prevent code from outside of a class to accidentally manipulate or data inside the class. So this is also the reason why we implement a public interface. So we are not supposed to manually mess with this property and therefore we should encapsulate it. The second reason is that when we expose only a small interface so a small API consisting only of a few public methods then we can change all the other internal methods with more confidence. Because in this case, we can be sure that external code does not rely on these private methods. And so therefore our code will not break when we do internal changes. So that's what encapsulation and data privacy are and the reasons for it.
+
+However JavaScript classes actually do not yet support real data privacy and encapsulation.
+
+// Encapsulation: Private Class Fields and Methods
+1) Public fields
+2) Private fields
+3) Public methods
+4) Public methods
