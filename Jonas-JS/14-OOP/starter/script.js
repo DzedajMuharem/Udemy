@@ -2,6 +2,7 @@
 
 //Constructor Functions and the new Operator
 
+/*
 const Person = function (firstName, birthYear) {
   // Instance properties
   this.firstName = firstName;
@@ -36,6 +37,7 @@ Person.hey = function () {
 };
 
 Person.hey();
+*/
 /*
 // Prototypes
 console.log(Person.prototype);
@@ -128,6 +130,7 @@ console.log(bmw.accelerate());
 // class expression
 // const PersonCl = class{}
 
+/*
 // class declaration
 class PersonCl {
   constructor(fullName, birthYear) {
@@ -230,6 +233,7 @@ console.log(steven.__proto__ === PersonProto);
 const sarah = Object.create(PersonProto);
 sarah.init('Sarah', 1979);
 sarah.calcAge();
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #2
@@ -254,6 +258,7 @@ DATA CAR 2: 'Mercedes' going at 95 km/h
 
 */
 
+/*
 class Car {
   constructor(make, speed) {
     this.make = make;
@@ -324,7 +329,7 @@ console.log(mike instanceof Object);
 
 Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor);
-
+*/
 ///////////////////////////////////////
 // Coding Challenge #3
 
@@ -339,6 +344,7 @@ DATA CAR 1: 'Tesla' going at 120 km/h, with a charge of 23%
 GOOD LUCK 😀
 */
 
+/*
 const Car2 = function (make, speed) {
   this.make = make;
   this.speed = speed;
@@ -377,3 +383,111 @@ tesla.accelerate();
 tesla.accelerate();
 tesla.brake();
 tesla.brake();
+*/
+
+/*
+// Inheritance Between "Classes": ES6 Classes
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  // Instance methods
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`hey ${this.firstName}`);
+  }
+
+  // Getter
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  // Set a property that alredy exists
+  set fullName(name) {
+    // console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  // static method
+  static hey() {
+    console.log('Hey there');
+    // console.log(this);
+  }
+}
+
+class StudentCl extends PersonCl {
+  // constructor(fullName, birthYear, course) {
+  //   // Always needs to happen first! only then we can acces this keyword
+  //   super(fullName, birthYear);
+  //   this.course = course;
+  // }
+  // If you dont want anny new properties you dont need to bothre writing constructor method in the child class//
+
+  constructor(fullName, birthYear, course) {
+    // Always needs to happen first! only then we can acces this keyword
+    super(fullName, birthYear);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and i study ${this.course}`);
+  }
+
+  calcAge() {
+    console.log(
+      `Im ${
+        2037 - this.birthYear
+      } years old, but as a studnet i fell more like ${
+        2037 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
+const martha = new StudentCl('Martha Jones', 2012, 'Computer Scienece');
+console.log(martha);
+martha.introduce();
+martha.calcAge();
+*/
+
+// Inheritance Between "Classes": Object.create
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+const jay = Object.create(StudentProto);
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+jay.init('Jay', 2010, 'Computer Science');
+console.log(jay);
+jay.introduce();
+jay.calcAge();
