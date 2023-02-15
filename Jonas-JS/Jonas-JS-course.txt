@@ -536,3 +536,18 @@ Classes are just 'syntactic sugar' over constructor functions
 Classes are not hoisted
 Classes are first-class citizens
 Class body is always executed in strict mode
+
+-----------------------------------------------------------------------------------------------------
+// Mapty App: OOP, Geolocation, External Libraries, and More! //
+
+// How to plan a Web project
+1. User Stories
+So a user story is basically a description of the application's functionality from the user's perspective. And then all the user stories put together will clearly describe the functionality of the entire application.
+2. Features
+3. Flowchart - What we will build
+4. Architecture - How we will build it
+---> DEVELOPMENT STEP
+
+1. uSER Stories:
+User story: Description of hte applications functionality from the users perspective.
+Common format: As a [type of user], i want [an action] so that [a benefit] - Who?, What?, Why?
