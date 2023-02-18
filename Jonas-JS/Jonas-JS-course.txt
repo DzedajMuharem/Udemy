@@ -551,3 +551,32 @@ So a user story is basically a description of the application's functionality fr
 1. uSER Stories:
 User story: Description of hte applications functionality from the users perspective.
 Common format: As a [type of user], i want [an action] so that [a benefit] - Who?, What?, Why?
+
+-----------------------------------------------------------------------------------------------------
+// Asynchronous JavaScript: Promises, Async/Await, and AJAX //
+
+// Asynchronous JavaScript, AJAX and APIs
+
+Most cose is synchronous;
+Synchronous code is executed line by line;
+Each line of code waits for previous line to finish;
+
+Asynchronous code is executed after a task that runs in the background finishes;
+Asynchronous code is non-blocking;
+Execution doesnt wait for an asynchronous task to finish its work
+Callback functions alone do NOT make code asynchronous!
+
+AJAX:
+AJAX stands for asynchronous JavaScript and XML, and basically it allows us to communicate with remote web servers in an asynchronous way. Now in practice, we make Ajax calls in our code in order to request some data from a web server dynamically. So without reloading the page so that we can use that data in our application dynamically.
+
+API:
+API is basically a piece of software that can be used by another piece of software in order to basically allow applications to talk to each other and exchange information.
+
+There are many types of APIs in web development:
+DOM API
+Geolocation API
+Own Class API
+"Online" API(or just API) - Online API is essentially an application running on a web server, which receives requests for data, then retrieves this data from some database and then sends it back to the client.
+
+We can build our own web APIs or use 3rd-party APIs
+
