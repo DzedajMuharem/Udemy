@@ -580,3 +580,10 @@ Own Class API
 
 We can build our own web APIs or use 3rd-party APIs
 
+// Promises and the Fetch API
+Promise:
+Definition of a promise is that it's an object that is used basically as a placeholder for the future result of an asynchronous operation.
+
+Promise(less formal): A cointainer for an asynchronously delivered value
+
+Promise(even less formal): A container for a future value
