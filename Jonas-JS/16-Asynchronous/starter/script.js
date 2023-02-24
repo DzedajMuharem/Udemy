@@ -232,6 +232,7 @@ TEST COORDINATES 2: -33.933, 18.474
 
 GOOD LUCK 😀
 */
+/*
 const whereAmI = function (lat, lng) {
   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then(res => {
@@ -255,3 +256,75 @@ const whereAmI = function (lat, lng) {
 whereAmI(52.508, 13.381);
 whereAmI(19.037, 72.873);
 whereAmI(-33.933, 18.474);
+*/
+
+// The Event Loop in Practice
+/*
+console.log('Test start');
+setTimeout(() => console.log('0sec timer'), 0);
+Promise.resolve(`Resolvved promise1`).then(res => console.log(res));
+
+Promise.resolve('Resolve promise 2').then(res => {
+  for (let i = 0; i < 1000000000; i++) {}
+  console.log(res);
+});
+
+console.log('test end');
+*/
+
+// Building a Simple Promise
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lottery draw is happening');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN');
+    } else {
+      reject(new Error('You lost'));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+// Promisifying setTimeout
+const wait = function (seconds) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+wait(1)
+  .then(() => {
+    console.log(`1 sec passed`);
+    return wait(1);
+  })
+  .then(() => {
+    console.log(`2 sec passed`);
+    return wait(1);
+  })
+  .then(() => {
+    console.log(`3 sec passed`);
+    return wait(1);
+  })
+  .then(() => {
+    console.log(`4 sec passed`);
+    return wait(1);
+  });
+
+// setTimeout(() => {
+//   console.log(`1 sec passed`);
+//   setTimeout(() => {
+//     console.log(`2 sec passed`);
+//     setTimeout(() => {
+//       console.log(`3 sec passed`);
+//       setTimeout(() => {
+//         console.log(`4 sec passed`);
+//       }, 1000);
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
+
+Promise.resolve('abc').then(res => console.log(res));
+Promise.reject(new Error('Probljemi nervoza stres')).catch(res =>
+  console.error(res)
+);
