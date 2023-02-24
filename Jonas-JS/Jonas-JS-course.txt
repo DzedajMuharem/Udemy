@@ -587,3 +587,12 @@ Definition of a promise is that it's an object that is used basically as a place
 Promise(less formal): A cointainer for an asynchronously delivered value
 
 Promise(even less formal): A container for a future value
+
+// Asynchronous Behind the Scenes: The Event Loop
+Concurrency model: How JS handles multiple tasks happening at the same time
+
+WEB APIs is place where asynchronous tasks run
+
+EVENT LOOP decides when each callback is executed: ORCHESTRATION
+
+MICROTASKS QUEUE: Like a callback queue,but for callbacks related to promises. Has priority over callback queue
