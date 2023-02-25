@@ -596,3 +596,6 @@ WEB APIs is place where asynchronous tasks run
 EVENT LOOP decides when each callback is executed: ORCHESTRATION
 
 MICROTASKS QUEUE: Like a callback queue,but for callbacks related to promises. Has priority over callback queue
+
+// Returning Values from Async Functions
+when we use async function we need to manually throw an error since async function doesnt reject
