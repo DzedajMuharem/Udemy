@@ -599,3 +599,10 @@ MICROTASKS QUEUE: Like a callback queue,but for callbacks related to promises. H
 
 // Returning Values from Async Functions
 when we use async function we need to manually throw an error since async function doesnt reject
+
+// Other Promise Combinators: race, allSettled and any
+
+Promise.all([]) - it loads everything at the same time. It will shortcircuit if some error happens. As result we get all fulfilled promises(if there are no rejected promises)
+Promise.race([]) - we get only one result. Result is first fulfilled or rejected promise 
+Promise.allSetled([]) - same like all but it doesnt shortcircuit. As result we get all results rejected and fulfilled
+Promise.any([]) - it ignores rejected promises and result will always be fulfilled promise, unless there are no fulfilled promises. Result is first fulfilled promise
