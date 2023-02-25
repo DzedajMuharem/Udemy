@@ -446,6 +446,7 @@ createImage('img/img-1.jpg')
   .catch(err => console.error(err));
 */
 
+/*
 // Consuming Promises with Async/Await
 
 const getPosition = function () {
@@ -514,3 +515,79 @@ console.log(`1: Will get location`);
 // } catch (err) {
 //   alert(err.message);
 // }
+*/
+
+/*
+// Running Promises in Parallel
+
+const get3Countries = async function (c1, c2, c3) {
+  try {
+    // const [dataC1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+    // const [dataC2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+    // const [dataC3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
+    // console.log(dataC1.capital, dataC2.capital, dataC3.capital);
+
+    const data = await Promise.all([
+      getJSON(`https://restcountries.com/v2/name/${c1}`),
+      getJSON(`https://restcountries.com/v2/name/${c2}`),
+      getJSON(`https://restcountries.com/v2/name/${c3}`),
+    ]);
+    console.log(data.map(d => d[0].capital));
+  } catch (err) {}
+};
+
+get3Countries('portugal', 'canada', 'serbia');
+*/
+
+// Other Promise Combinators: race, allSettled and any
+
+// Promise.race - we get only one result. Whoever loads first. Promise that gets rejected also can be accepted
+
+(async function () {
+  const response = await Promise.race([
+    getJSON(`https://restcountries.com/v2/name/${'egypt'}`),
+    getJSON(`https://restcountries.com/v2/name/${'italy'}`),
+    getJSON(`https://restcountries.com/v2/name/${'mexico'}`),
+  ]);
+  console.log(response[0]);
+})();
+
+const timeout = function (s) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error('request took too long'));
+    }, s * 1000);
+  });
+};
+
+Promise.race([
+  getJSON(`https://restcountries.com/v2/name/${'mexico'}`),
+  timeout(1),
+])
+  .then(res => console.log(res[0]))
+  .catch(err => console.log(err));
+
+// Promise.allSetled
+Promise.allSettled([
+  Promise.resolve('succes'),
+  Promise.reject('Error'),
+  Promise.resolve('Another succes'),
+]).then(res => console.log(res));
+
+Promise.all([
+  Promise.resolve('succes'),
+  Promise.reject('Error'),
+  Promise.resolve('Another succes'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+
+// Promise.any [ES2021]
+
+Promise.any([
+  Promise.resolve('succes first'),
+  Promise.reject('Error'),
+  Promise.resolve('Another succes'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
