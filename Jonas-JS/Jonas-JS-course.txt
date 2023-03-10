@@ -606,3 +606,30 @@ Promise.all([]) - it loads everything at the same time. It will shortcircuit if 
 Promise.race([]) - we get only one result. Result is first fulfilled or rejected promise 
 Promise.allSetled([]) - same like all but it doesnt shortcircuit. As result we get all results rejected and fulfilled
 Promise.any([]) - it ignores rejected promises and result will always be fulfilled promise, unless there are no fulfilled promises. Result is first fulfilled promise
+
+-----------------------------------------------------------------------------------------------------
+// Modern JavaScript Development: Modules, Tooling, and Functional //
+
+// An Overview of Modules in JavaScript
+Module is a reusable piece of code that encapsulates implementation details of a certain part of our project.
+
+Compose software: Modules are small building blocks that we put together to build complex applications;
+
+Isolate components: Modules can be developed in isolation without thinking about the entire codebase;
+
+Abstract code: Implement low-level code in modules and import these abstraction into other modules;
+
+Organized code: Modules naturally lead to more organized codebase;
+
+Reuse code: Modules allow us to easily reuse the same code, even across multiple projects 
+
+-- ES6 modules
+So ES6 modules are modules that are actually stored in files and each file is one module.
+
+IMPORTING MODULES BEFORE EXECUTION:
+Modules are imported synchronously
+Possible thanks to top-level ('static') imports,
+which make imports known before execution
+This makes bundling and dead code elimination possible
+
+IMPORTS ARE NOT COPIES OF EXPORTS, THEY ARE INSTEAD LIKE A LIVE CONNECTION, THEY POINT TO THE SAME PLACE IN MEMORY
