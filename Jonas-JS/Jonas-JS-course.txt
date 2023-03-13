@@ -633,3 +633,6 @@ which make imports known before execution
 This makes bundling and dead code elimination possible
 
 IMPORTS ARE NOT COPIES OF EXPORTS, THEY ARE INSTEAD LIKE A LIVE CONNECTION, THEY POINT TO THE SAME PLACE IN MEMORY
+
+// Top-Level await (ES2022)
+It's very important to remember that using top-level await, so await outside of any async function will block the entire module in a way that we really couldn't block code execution before. And so this is not only a really helpful tool, but also one that we need to use with great care.
