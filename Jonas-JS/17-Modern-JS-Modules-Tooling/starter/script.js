@@ -2,7 +2,7 @@
 // import { addToCart, totalPrice as price, qt } from './shoppingCart.js';
 // addToCart('bread', 15);
 // console.log(price, qt);
-console.log('Importing module');
+// console.log('Importing module');
 // console.log(shippingCost)
 
 // import * as ShoppingCart from './shoppingCart.js';
@@ -86,3 +86,20 @@ export.addToCart = function (product, quantity) {
   // Import 
 const{addToCart} = require('./shoppingCart.js')
 */
+
+import cloneDeep from '';
+
+const state = {
+  cart: [
+    { product: 'pizza', quantity: 5 },
+    { product: 'pizza', quantity: 5 },
+  ],
+  user: { loggedIn: true },
+};
+
+const stateClone = Object.assign({}, state);
+const stateDeepClone = cloneDeep(state);
+state.user.loggedIn = false;
+console.log(stateClone);
+
+console.log(stateDeepClone);
