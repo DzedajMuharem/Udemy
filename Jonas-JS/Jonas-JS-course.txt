@@ -676,3 +676,43 @@ Avoid callback-based asynchronous APIs
 Consume promises with async/await for best readability
 Whenever possible, run promises in parallel(Promise.all)
 Handle errors and promise rejections
+
+//  Declarative and Functional JavaScript Principles
+
+IMPERATIVE:
+Programmer explains 'HOW to do things'
+We explain the computer every single step it has to follow to achieve a result
+
+const arr = [2,4,6,8]
+const doubled = []
+for(let i =0;i<arr.length;i++) doubled[i] =  arr[i] *2
+
+DECLARATIVE
+Programmer tells 'WHAT to do'
+We simply describe the way the computer should achieve the result
+The HOW (step-by-step instructions) gets abstracted away
+
+const arr = [2,4,6,8]
+const doubled = arr.map(n=>n*2)
+
+Functional programming, is basically a declarative paradigm, which is based on the idea of writing software, simply by combining multiple so called pure functions, while avoiding side effects and mutating data.
+
+Side effect is basically simply a modification of any data that's outside of a function. So, for example, mutating any variable that is external to the function is causing a side effect. So basically, any variable that is outside of the scope of the function, all right? Now, data does not only refer to variables, so for example, logging stuff to the console, or also changing something in the DOM, is also causing side effects.
+
+Pure function is a function without side effects. So, basically a function that does not mutate any external variables, and that does also not depend on any external variables. So basically, if we give the same inputs to a pure function, it will always return the same output and again, that's because it does not depend on any external variables, and it also does not manipulate them.
+
+Immutabilty: State (data) is never modified! Instead, state is copied and the copy is mutated and returned
+
+FUNCTIONAL PROGRAMMING TECHNIQUES
+
+Try to avoid data mutations
+Use built in methods that dont produce side effects
+Di data transformations with methods such as .map(), .filter() and .reduce()
+Try to avoid side effects in functions: this is of course not always possible!
+
+DECLARATIVE SYNTAX
+
+Use array and object destructuring
+Use the spread operator(...)
+Use ternary (conditional) operator
+Use template literals
